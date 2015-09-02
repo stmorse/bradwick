@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Network Simulation</title>
+    <style>
+
+
+.link {
+  stroke: #999;
+  stroke-width: 1px;
+}
+
+.node {
+  fill: #111;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+#game-controls {
+  position: absolute;
+  font: 10pt Arial;
+  width: 940px;
+  padding: 10px;
+  z-index: 1;
+}
+
+#game-turns {
+  float: right;
+}
+
+</style>
+<body>
+<div id="game-controls">
+  <span id="game-turns"><span id="game-turns-value">-1</span> / 4 &nbsp;<button class="reset">|&lt;&lt;</button><button class="prev">&#x2212;</button><button class="next">+</button><button class="last">&#62;&#62;|</button></span>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 800;
+
+var color = d3.scale.category10();
+
+var legend = d3.scale.ordinal()
+    .domain(["Regular", "Forceful_1", "Forceful", "Forceful_2"])
+    .range(d3.svg.symbolTypes);
+
+var cur_step = -1,
+    max_step = 4;
+
+// global nodes/links vars
+var g_nodes = [],
+    g_links = [];
+
+// toggle stores whether the highlighting is on
+var toggle = 0;
+
+//Create an array logging what is connected to what
+var linkedByIndex = {};
+
+// force layout var
+var force = d3.layout.force()
+    .nodes(g_nodes)
+    .links(g_links)
+    .charge(-400)
+    .linkDistance(100)
+    .size([width, height])
+    .on("tick", tick);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var node = svg.selectAll(".node"),
+    link = svg.selectAll(".link");
+
+d3.selectAll("#game-turns button")
+  .data([-100, -1, 1, 100])
+  .on("click", function(d) {
+    cur_step += d;
+
+    if (cur_step < -1)
+      cur_step = -1;
+    else if (cur_step > max_step)
+      cur_step = max_step;
+ 
+    d3.select("#game-turns-value").text(cur_step);
+    newStep();
+  });
+
+// drag/drop var
+var drag = force.drag()
+    .on("dragstart", dragstart);
+
+d3.json("Net_v1_villages.json", function(error, graph) {
+  if (error) throw error;
+
+  // kludge to push JSON data
+  node_array = graph.nodes;
+  link_array = [];
+  for (i=0; i < graph.links.length; i++) {
+    g_links.push({source: node_array[graph.links[i].source], 
+      target: node_array[graph.links[i].target]});
+  }
+
+  g_nodes.push.apply(g_nodes, node_array);
+  
+  updateNeighbors();
+
+  g_nodes[76].fixed = true;
+  g_nodes[76].x = width - (width/8);
+  g_nodes[76].y = height/8;
+
+  g_nodes[77].fixed = true;
+  g_nodes[77].x = (width/8);
+  g_nodes[77].y = height - (height/8);
+
+  start();
+});
+
+// add new stubborn agent links
+function newStep() {
+  d3.json("Net_v1_village_show.json", function(err, stuff) {
+    // TODO: improve insanely kludgy code....
+
+    // pop off all values on node 76 and 77
+    for (i=g_links.length-1; i > 0; i--) {
+      if (g_links[i].source == g_nodes[76] || g_links[i].source == g_nodes[77] || 
+          g_links[i].target == g_nodes[76] || g_links[i].target == g_nodes[77]) {
+        g_links.pop();
+      }
+    }
+
+    // add values for cur_step
+    if (cur_step > -1) {
+      for (j=0; j < stuff.steps[cur_step].length; j++) {
+        g_links.push({source: g_nodes[stuff.steps[cur_step][j].source],
+          target: g_nodes[stuff.steps[cur_step][j].target],
+          value: stuff.steps[cur_step][j].value});
+      }  
+    }
+
+    updateNeighbors();
+    
+    start();
+  });  
+}
+
+
+function start() {
+
+  link = link.data(force.links(), function(d) { return d.source.Node + "-" + d.target.Node; });
+  link.enter()
+    .insert("line", ".node")
+    .attr("class", "link")
+    .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+  link.exit().remove();
+
+  node = node.data(force.nodes(), function(d) { return d.Node;});
+  node.enter()
+      .append("path")
+      .attr("class", "node")      
+      .attr("d", d3.svg.symbol()
+        .type(function(d) { return legend(d.Type); }))
+      .style("fill", function(d) { return color(d.Belief); })
+      .on("dblclick", connectedNodes)
+      .call(drag);
+  node.exit().remove();
+
+  force.start();
+}
+
+function tick() {
+  node.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; })
+
+  link.attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  svg.selectAll("path")
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+}
+
+// dragging node fixes it
+function dragstart(d) {
+  d3.select(this).classed("fixed", d.fixed = true);
+}
+
+// double-clicking un-fixes it
+// function dblclick(d) {
+//   d3.select(this).classed("fixed", d.fixed = false);
+// }
+
+// toggling code...
+function updateNeighbors() {
+  // reset
+  linkedByIndex = {};
+
+  // all links connected to themselves
+  for (i = 0; i < g_nodes.length; i++) {
+    linkedByIndex[i + "," + i] = 1;
+  }
+
+  // connect to neighbors
+  g_links.forEach(function(d) {
+    linkedByIndex[d.source.Node + "," + d.target.Node] = 1;
+  });
+}
+
+// this function looks up whether a pair are neighbours
+function neighboring(a, b) {
+    return linkedByIndex[a.Node + "," + b.Node];
+}
+
+function connectedNodes() {
+    if (toggle == 0) {
+        //Reduce the opacity of all but the neighbouring nodes
+        d = d3.select(this).node().__data__;
+        node.style("opacity", function (o) {
+            return neighboring(d, o) | neighboring(o, d) ? 1 : 0.1;
+        });
+        link.style("opacity", function (o) {
+            return d.index==o.source.Node | d.Node==o.target.Node ? 1 : 0.1;
+        });
+        //Reduce the op
+        toggle = 1;
+    } else {
+        //Put them back to opacity=1
+        node.style("opacity", 1);
+        link.style("opacity", 1);
+        toggle = 0;
+    }
+}
+
+</script>
+<div>
+  Click +/- to view stubborn agents change strategy. Drag nodes to fix in place. Double-click to highlight neighbors. 
+</div>
+</body>
+</html>
