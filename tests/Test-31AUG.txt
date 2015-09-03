@@ -1,0 +1,220 @@
+~/documents/math/bradwick/code/rewrite $ python GameMain.py data/Net_v1_villages.json
+
+Steps: 10, Simulations: 10, Interactions (Avg): 100
+Key nodes: 38, Max agent connects: 3, Poss. strategies: 38
+Mean belief of network:  0.0385
+
+Beliefs:  0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.35 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.2 -0.2 -0.2 -0.2 -0.2 -0.2 -0.2 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.3 -0.3 -0.3 -0.3 -0.3 -0.3 -0.1 -0.1 -0.1 0.5 -0.5 .
+
+Begin step 0. Existing connections: US - [], TB - [] 
+Interaction num this step: 99 (avg: 100)
+ - Assessing strategies for TB ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [12]
+ - Average belief before strategy:  0.0384615384615
+ - Average belief after strategy:  0.0349955939548
+ - Greedy pick 2 of 3
+ - Best strategy:  [66]
+ - Average belief before strategy:  0.0349955939548
+ - Average belief after strategy:  0.0176464486476
+ - Greedy pick 3 of 3
+ - Best strategy:  [29]
+ - Average belief before strategy:  0.0176464486476
+ - Average belief after strategy:  -0.00702173177054
+ - US connections:  []
+ - TB connections:  [12, 66, 29]
+End step  0
+
+ Beliefs:  0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.04 0.1 -0.01 0.03 0.06 0.04 0.06 0.05 0.02 0.03 0.1 0.18 0.17 0.14 0.15 0.15 0.15 0.16 0.11 -0.08 0.26 0.18 0.2 0.2 0.19 0.16 0.11 -0.16 -0.1 -0.11 -0.11 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.2 -0.2 -0.2 -0.2 -0.2 -0.2 -0.2 -0.11 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.1 -0.23 -0.17 -0.18 -0.19 -0.17 -0.3 -0.3 -0.1 -0.1 -0.1 0.5 -0.5 .
+
+Begin step 1. Existing connections: US - [], TB - [12, 66, 29] 
+Interaction num this step: 98 (avg: 100)
+ - Assessing strategies for US ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [68]
+ - Average belief before strategy:  -0.00702173177054
+ - Average belief after strategy:  -0.00197919820056
+ - Greedy pick 2 of 3
+ - Best strategy:  [47]
+ - Average belief before strategy:  -0.00197919820056
+ - Average belief after strategy:  0.00397475908942
+ - Greedy pick 3 of 3
+ - Best strategy:  [56]
+ - Average belief before strategy:  0.00397475908942
+ - Average belief after strategy:  0.0143692099855
+ - US connections:  [47, 68, 56]
+ - TB connections:  [12, 66, 29]
+End step  1
+
+ Beliefs:  0.2 0.2 0.2 0.19 0.2 0.19 0.19 0.19 0.19 0.2 0.04 0.01 -0.02 0.01 0.03 0.01 0.02 0.02 0.02 0.08 0.1 0.19 0.12 0.1 0.12 0.1 0.1 0.1 0.1 0.01 0.12 0.1 0.1 0.1 0.1 0.09 0.09 -0.06 0.0 -0.05 -0.06 -0.06 -0.06 -0.05 -0.06 -0.06 -0.06 0.02 -0.15 -0.09 -0.1 -0.1 -0.08 -0.08 -0.09 -0.07 0.06 -0.1 -0.08 -0.09 -0.09 -0.09 -0.08 -0.08 -0.08 -0.09 -0.08 -0.07 0.16 -0.02 -0.07 -0.17 -0.21 -0.1 -0.1 -0.1 0.5 -0.5 .
+
+Begin step 2. Existing connections: US - [47, 68, 56], TB - [12, 66, 29] 
+Interaction num this step: 100 (avg: 100)
+ - Assessing strategies for TB ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [2]
+ - Average belief before strategy:  0.0143692099855
+ - Average belief after strategy:  0.00432422837994
+ - Greedy pick 2 of 3
+ - Best strategy:  [47]
+ - Average belief before strategy:  0.00432422837994
+ - Average belief after strategy:  -0.0141174187948
+ - Greedy pick 3 of 3
+ - Best strategy:  [39]
+ - Average belief before strategy:  -0.0141174187948
+ - Average belief after strategy:  -0.025034636378
+ - US connections:  [47, 68, 56]
+ - TB connections:  [2, 47, 39]
+End step  2
+
+ Beliefs:  0.06 0.1 -0.15 0.01 -0.02 0.01 0.04 0.01 0.01 0.0 -0.0 0.0 -0.01 -0.01 -0.03 0.0 -0.0 -0.01 0.01 0.05 0.06 0.06 0.06 0.06 0.06 0.06 0.06 0.06 0.06 0.01 0.08 0.04 0.04 0.04 0.03 0.04 0.04 -0.07 -0.04 -0.13 -0.07 -0.07 -0.07 -0.07 -0.08 -0.07 -0.05 -0.11 -0.09 -0.08 -0.08 -0.08 -0.07 -0.07 -0.08 -0.07 -0.04 -0.07 -0.08 -0.07 -0.08 -0.07 -0.07 -0.07 -0.07 -0.08 -0.08 -0.04 0.09 -0.02 -0.07 -0.17 -0.16 -0.08 -0.1 -0.1 0.5 -0.5 .
+
+Begin step 3. Existing connections: US - [47, 68, 56], TB - [2, 47, 39] 
+Interaction num this step: 99 (avg: 100)
+ - Assessing strategies for US ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [47]
+ - Average belief before strategy:  -0.025034636378
+ - Average belief after strategy:  -0.0150564178878
+ - Greedy pick 2 of 3
+ - Best strategy:  [70]
+ - Average belief before strategy:  -0.0150564178878
+ - Average belief after strategy:  -0.00980431049623
+ - Greedy pick 3 of 3
+ - Best strategy:  [46]
+ - Average belief before strategy:  -0.00980431049623
+ - Average belief after strategy:  -0.00310936710572
+ - US connections:  [47, 70, 46]
+ - TB connections:  [2, 47, 39]
+End step  3
+
+ Beliefs:  0.04 0.06 0.02 0.03 0.03 0.03 0.03 0.03 0.04 0.03 -0.0 0.0 -0.01 -0.02 -0.01 -0.01 -0.01 -0.01 -0.01 0.06 0.03 0.04 0.05 0.04 0.05 0.04 0.04 0.05 0.04 0.02 0.04 0.03 0.03 0.03 0.03 0.03 0.03 -0.05 -0.04 -0.1 -0.06 -0.05 -0.04 -0.03 -0.05 -0.05 0.2 0.0 0.03 0.02 0.02 0.02 0.02 0.01 -0.05 -0.04 -0.05 -0.08 -0.06 -0.05 -0.06 -0.05 -0.06 -0.06 -0.06 -0.06 -0.06 -0.04 0.02 -0.01 0.11 -0.1 -0.08 -0.07 -0.08 -0.07 0.5 -0.5 .
+
+Begin step 4. Existing connections: US - [47, 70, 46], TB - [2, 47, 39] 
+Interaction num this step: 98 (avg: 100)
+ - Assessing strategies for TB ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [9]
+ - Average belief before strategy:  -0.00310936710572
+ - Average belief after strategy:  -0.0100344321412
+ - Greedy pick 2 of 3
+ - Best strategy:  [2]
+ - Average belief before strategy:  -0.0100344321412
+ - Average belief after strategy:  -0.0189165243259
+ - Greedy pick 3 of 3
+ - Best strategy:  [0]
+ - Average belief before strategy:  -0.0189165243259
+ - Average belief after strategy:  -0.0237561500811
+ - US connections:  [47, 70, 46]
+ - TB connections:  [2, 9, 0]
+End step  4
+
+ Beliefs:  -0.1 -0.03 -0.25 -0.08 -0.12 -0.09 -0.11 -0.09 -0.12 -0.13 -0.02 -0.0 -0.01 -0.01 -0.06 -0.01 -0.01 -0.01 -0.01 0.01 0.02 0.02 0.03 0.02 0.02 0.02 0.02 0.02 0.02 0.02 0.03 0.02 0.02 0.02 0.02 0.02 0.02 -0.04 -0.04 -0.05 -0.03 -0.02 -0.04 -0.03 -0.03 -0.03 0.06 0.03 0.01 0.01 0.01 0.01 0.01 0.01 -0.05 -0.04 -0.05 -0.05 -0.04 -0.04 -0.05 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 -0.04 0.01 -0.01 0.01 -0.07 -0.04 0.01 -0.08 -0.06 0.5 -0.5 .
+
+Begin step 5. Existing connections: US - [47, 70, 46], TB - [2, 9, 0] 
+Interaction num this step: 99 (avg: 100)
+ - Assessing strategies for US ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [1]
+ - Average belief before strategy:  -0.0237561500811
+ - Average belief after strategy:  -0.0134640419552
+ - Greedy pick 2 of 3
+ - Best strategy:  [74]
+ - Average belief before strategy:  -0.0134640419552
+ - Average belief after strategy:  -0.00370314061351
+ - Greedy pick 3 of 3
+ - Best strategy:  [75]
+ - Average belief before strategy:  -0.00370314061351
+ - Average belief after strategy:  0.00733406933621
+ - US connections:  [1, 74, 75]
+ - TB connections:  [2, 9, 0]
+End step  5
+
+ Beliefs:  -0.1 0.14 -0.09 -0.04 -0.03 -0.03 -0.04 -0.02 -0.04 -0.03 -0.02 -0.01 -0.01 -0.01 -0.02 -0.01 -0.01 -0.01 -0.01 0.01 0.02 0.02 0.02 0.01 0.02 0.01 0.01 0.01 0.02 0.01 0.02 0.02 0.02 0.02 0.02 0.02 0.02 -0.03 -0.03 -0.03 -0.03 -0.02 -0.03 -0.03 -0.03 -0.03 -0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.0 -0.02 -0.01 0.05 0.07 0.03 0.08 0.03 0.05 0.03 0.09 0.04 0.07 0.02 -0.02 0.01 -0.01 0.01 -0.05 -0.03 -0.01 0.18 0.27 0.5 -0.5 .
+
+Begin step 6. Existing connections: US - [1, 74, 75], TB - [2, 9, 0] 
+Interaction num this step: 101 (avg: 100)
+ - Assessing strategies for TB ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [12]
+ - Average belief before strategy:  0.00733406933621
+ - Average belief after strategy:  -0.00160901457006
+ - Greedy pick 2 of 3
+ - Best strategy:  [39]
+ - Average belief before strategy:  -0.00160901457006
+ - Average belief after strategy:  -0.00618500542952
+ - Greedy pick 3 of 3
+ - Best strategy:  [55]
+ - Average belief before strategy:  -0.00618500542952
+ - Average belief after strategy:  -0.00962333746188
+ - US connections:  [1, 74, 75]
+ - TB connections:  [12, 39, 55]
+End step  6
+
+ Beliefs:  -0.05 -0.04 -0.08 -0.04 -0.04 -0.05 -0.04 -0.04 -0.06 -0.03 -0.02 -0.01 -0.15 -0.03 -0.04 -0.05 -0.06 -0.03 -0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.02 0.01 0.01 0.01 0.01 0.01 0.01 -0.02 -0.02 -0.06 -0.03 -0.02 -0.02 -0.03 -0.03 -0.02 -0.01 -0.01 0.0 0.0 0.0 0.0 0.0 0.0 0.01 -0.16 0.01 0.03 0.01 0.01 0.02 -0.01 -0.01 0.01 0.01 0.01 0.01 -0.02 0.01 -0.01 0.0 -0.03 -0.03 -0.01 0.22 0.11 0.5 -0.5 .
+
+Begin step 7. Existing connections: US - [1, 74, 75], TB - [12, 39, 55] 
+Interaction num this step: 101 (avg: 100)
+ - Assessing strategies for US ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [55]
+ - Average belief before strategy:  -0.00962333746188
+ - Average belief after strategy:  0.00153827516606
+ - Greedy pick 2 of 3
+ - Best strategy:  [13]
+ - Average belief before strategy:  0.00153827516606
+ - Average belief after strategy:  0.0109157524874
+ - Greedy pick 3 of 3
+ - Best strategy:  [57]
+ - Average belief before strategy:  0.0109157524874
+ - Average belief after strategy:  0.0122708440107
+ - US connections:  [13, 55, 57]
+ - TB connections:  [12, 39, 55]
+End step  7
+
+ Beliefs:  -0.03 -0.04 -0.04 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 -0.01 -0.01 -0.04 0.03 -0.01 0.01 -0.0 0.01 -0.01 0.0 0.0 0.01 0.01 0.01 0.01 0.01 0.01 0.01 0.0 0.0 0.01 0.01 0.01 0.01 0.01 0.01 0.01 -0.02 -0.02 -0.03 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.01 -0.0 -0.0 -0.0 -0.0 -0.0 -0.0 0.08 -0.01 0.07 0.22 0.07 0.08 0.09 0.09 0.07 0.09 0.09 0.07 0.07 -0.01 0.01 -0.01 0.0 -0.03 -0.0 0.06 0.18 0.11 0.5 -0.5 .
+
+Begin step 8. Existing connections: US - [13, 55, 57], TB - [12, 39, 55] 
+Interaction num this step: 100 (avg: 100)
+ - Assessing strategies for TB ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [30]
+ - Average belief before strategy:  0.0122708440107
+ - Average belief after strategy:  0.00664338623033
+ - Greedy pick 2 of 3
+ - Best strategy:  [36]
+ - Average belief before strategy:  0.00664338623033
+ - Average belief after strategy:  -0.000555360481387
+ - Greedy pick 3 of 3
+ - Best strategy:  [74]
+ - Average belief before strategy:  -0.000555360481387
+ - Average belief after strategy:  -0.0100614849401
+ - US connections:  [13, 55, 57]
+ - TB connections:  [30, 36, 74]
+End step  8
+
+ Beliefs:  -0.02 -0.03 -0.04 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 -0.01 -0.01 -0.03 0.07 -0.01 -0.01 -0.01 -0.01 -0.01 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 -0.04 -0.14 -0.1 -0.1 -0.1 -0.11 -0.1 -0.2 -0.01 0.01 -0.01 -0.01 -0.01 -0.01 -0.01 -0.01 -0.01 -0.01 -0.01 -0.0 -0.0 -0.0 -0.0 -0.0 -0.0 0.01 0.04 0.05 0.06 0.05 0.02 0.05 0.05 0.02 0.05 0.05 0.02 0.05 -0.01 -0.0 -0.01 -0.0 -0.01 -0.0 0.06 -0.15 0.07 0.5 -0.5 .
+
+Begin step 9. Existing connections: US - [13, 55, 57], TB - [30, 36, 74] 
+Interaction num this step: 101 (avg: 100)
+ - Assessing strategies for US ... 
+ - Greedy pick 1 of 3
+ - Best strategy:  [30]
+ - Average belief before strategy:  -0.0100614849401
+ - Average belief after strategy:  -0.000835583012441
+ - Greedy pick 2 of 3
+ - Best strategy:  [74]
+ - Average belief before strategy:  -0.000835583012441
+ - Average belief after strategy:  0.00354191922769
+ - Greedy pick 3 of 3
+ - Best strategy:  [1]
+ - Average belief before strategy:  0.00354191922769
+ - Average belief after strategy:  0.00919756178197
+ - US connections:  [30, 74, 1]
+ - TB connections:  [30, 36, 74]
+End step  9
+
+ Beliefs:  -0.02 0.15 -0.03 -0.01 0.0 0.01 -0.0 -0.01 -0.0 -0.0 -0.01 -0.01 -0.02 -0.01 -0.01 -0.01 -0.01 -0.01 -0.01 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.13 -0.02 0.0 0.01 0.01 -0.0 -0.1 -0.0 0.0 -0.0 -0.0 0.0 -0.0 -0.0 -0.0 -0.0 0.02 -0.0 0.01 0.0 0.0 0.0 0.0 -0.0 0.01 0.03 0.04 0.05 0.04 0.05 0.04 0.04 0.05 0.04 0.04 0.04 0.02 -0.01 -0.0 -0.0 -0.0 -0.0 -0.0 0.05 0.06 0.05 0.5 -0.5 .
+
+TOTAL TIME: 167.719 sec
+Complete.
